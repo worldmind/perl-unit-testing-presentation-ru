@@ -63,21 +63,21 @@
 \begin{frame}[fragile]
 \frametitle{Модульное тестирование в Perl: запуск тестов}
 \begin{block}{Run test}
-\begin{lstlisting}
+\begin{verbatim}
 $ perl t/simple-test.t
 1..1
 ok 1 - world.mind@yahoo.com must be valid
-\end{lstlisting}
+\end{verbatim}
 \end{block}
 \begin{block}{Run tests with Test:Harness}
-\begin{lstlisting}
+\begin{verbatim}
 $ prove
 t/simple-test.t .. ok   
 t/use.t .......... ok   
 All tests successful.
 Files=2, Tests=2,  1 wallclock secs ( 0.02 usr  0.01 sys +  0.14 cusr  0.02 csys =  0.19 CPU)
 Result: PASS
-\end{lstlisting}
+\end{verbatim}
 \end{block}
 \end{frame}
 
