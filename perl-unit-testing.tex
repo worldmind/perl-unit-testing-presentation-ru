@@ -4,7 +4,7 @@
 \usepackage[english,russian]{babel}
 \usepackage{cite,enumerate,float,indentfirst}
 \usepackage{listings}
-
+\lstset{language=Perl}
 \usetheme{Madrid}
 
 \title{Unit testing for Perl}
@@ -50,18 +50,41 @@
 \end{itemize}
 \end{frame}
 
-%% Unit teste and Perl
+%% Test::More
 \begin{frame}[fragile]
-\frametitle{Модульное тестирование в Perl: тесты}
-Модуль Test::More
-\begin{block}{Test example}
-\lstinputlisting[language=Perl]{t/simple-test.t}
+\frametitle{use Test::More;}
+Базовые функции
+\begin{itemize}
+\item ok
+\item is
+\item new\_ok
+\item is\_deeply
+\item ...
+\end{itemize}
+Диагностика
+\begin{itemize}
+\item diag
+\item explain
+\end{itemize}
+Пример:
+\begin{lstlisting}
+is_deeply( $got, $expected, 'Result must be ...' )
+    or diag explain $got;
+\end{lstlisting}
+\end{frame}
+
+%% Минимальный пример теста
+\begin{frame}[fragile]
+\frametitle{Минимальный пример}
+\begin{block}{Пример положительного функционального теста}
+\lstinputlisting{t/simple-test.t}
 \end{block}
 \end{frame}
 
 %% Запуск тестов
 \begin{frame}[fragile]
-\frametitle{Модульное тестирование в Perl: запуск тестов}
+\frametitle{Запуск тестов}
+TAP - Test Anything Protocol
 \begin{block}{Run test}
 \begin{verbatim}
 $ perl t/simple-test.t
@@ -79,6 +102,69 @@ Files=2, Tests=2,  1 wallclock secs ( 0.02 usr  0.01 sys +  0.14 cusr  0.02 csys
 Result: PASS
 \end{verbatim}
 \end{block}
+Makefile - иногда удобнее т.к. бывает нужно для тестов добавлять пути в @INC
+\end{frame}
+
+%% Тестирование исключений
+\begin{frame}{Тестирование исключений}
+\begin{block}{Test::Exception}
+\lstinputlisting{t/exception.t}
+\end{block}
+\end{frame}
+
+%% Модуль взаимодействует с внешними объектами?
+\begin{frame}{Что делать если модуль взаимодействует с внешним миром?}
+\begin{itemize}
+\item Пишет/читает базу
+\item Обращается в web страницам/скриптам
+\item Пишет/читает memcache
+\item Вызывает SOAP/XML-RPC сервисы
+\item и т.п.
+\end{itemize}
+\begin{center} 
+\LARGE ?
+\end{center}
+\end{frame}
+
+%% Mock/Stub/Fake
+\begin{frame}{Mock/Stub/Fake}
+Mock модули общего назначения
+\begin{itemize}
+\item Test::MockObject
+\item Test::MockModule
+\item Test::MockClass
+\end{itemize}
+Специализированные
+\begin{itemize}
+\item DBD::Mock
+\item Test::Mock::LWP
+\item Cache::Memcached::Mock
+\item и т.п.
+\end{itemize}
+\end{frame}
+
+%% Пример подмены LWP
+\begin{frame}[allowframebreaks]{Пример подмены модуля LWP}
+%\begin{block}{}
+\lstinputlisting{t/mock-memcache.t}
+%\end{block}
+\end{frame}
+
+%% Закончили с функциональным
+\begin{frame}
+
+\end{frame}
+
+%% 
+\begin{frame}
+\end{frame}
+
+%% 
+\begin{frame}
+\end{frame}
+
+%% 
+\begin{frame}
 \end{frame}
 
 %% 
