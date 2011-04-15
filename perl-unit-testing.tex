@@ -5,7 +5,7 @@
 \usepackage{cite,enumerate,float,indentfirst}
 \usepackage{listings}
 \lstset{language=Perl}
-\usetheme{Madrid}
+\usetheme{umbc2}
 
 \title{Unit testing for Perl}
 \author{Alexey Shrub}
@@ -17,14 +17,11 @@
 \maketitle
 
 %% Что такое модульное тестирование
-\begin{frame}
-%\begin{center}
-\frametitle{Модульное тестирование}
+\begin{frame}{Модульное тестирование}
 \begin{itemize}
 \item Автоматизированное.
 \item Изолированное.
 \end{itemize}
-%\end{center}
 \end{frame}
 
 %% Зачем нужны тесты
@@ -32,10 +29,15 @@
 \frametitle{Зачем нужны модульные тесты}
 \begin{itemize}
 \item Необходимая верификация (+ двойная запись).
+\pause
 \item Борьба с ростом энтропии (регрессом) при изменениях (= легкость рефакторинга).
+\pause
 \item Локализация ошибок (в отличии от интеграционных).
+\pause
 \item Раннее обнаружение ошибок (чем раньше тем дешевле исправление ошибки).
+\pause
 \item Раннее обнаружение неудобного интерфейса.
+\pause
 \item Документация.
 \end{itemize}
 \end{frame}
@@ -48,6 +50,12 @@
 \item Код нетестируемый.
 \item Неумею и боюсь, у меня и без тестов вроде/должно работать.
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+Тесты в Perl. Функциональное тестирование
+\end{center}
 \end{frame}
 
 %% Test::More
@@ -151,44 +159,70 @@ Mock модули общего назначения
 \end{frame}
 
 %% Закончили с функциональным
-\begin{frame}
+\begin{frame}{}
+\begin{center}
+Нефункциональное тестирование
 
+Автоматизированный code review
+
+Почему?
+
+Зачем?
+
+\end{center}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{}
 \end{frame}
 
 %% 
-\begin{frame}
+\begin{frame}{Вопросы}
+
+\begin{center}
+\LARGE QUESTIONS?
+\end{center}
+
+\begin{block}{Исходники презентации (LaTeX, Beamer):}
+https://github.com/worldmind/perl-unit-testing-presentation-ru.git
+\end{block}
+
+\begin{block}{Набор тестов:}
+https://github.com/worldmind/perl-test-code-quality-template.git
+\end{block}
+
+\begin{block}{Feedback to:}
+ashrub@yandex.ru
+\end{block}
+
 \end{frame}
 
 \end {document}
