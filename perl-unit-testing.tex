@@ -1,4 +1,5 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
+\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
@@ -9,7 +10,7 @@
 
 \title{Unit testing for Perl}
 \author{Alexey Shrub}
-\institute{ashrub@yandex.ru}
+\institute{Российские интернет-технологии}
 \date{2011-04-25}
 \begin{document}
 
@@ -69,12 +70,7 @@
 \item is\_deeply
 \item ...
 \end{itemize}
-Диагностика
-\begin{itemize}
-\item diag
-\item explain
-\end{itemize}
-Пример:
+Диагностика (diag/explain):
 \begin{lstlisting}
 is_deeply( $got, $expected, 'Result must be ...' )
     or diag explain $got;
@@ -89,9 +85,9 @@ is_deeply( $got, $expected, 'Result must be ...' )
 \end{block}
 \end{frame}
 
-%% Запуск тестов
+%% Запуск теста
 \begin{frame}[fragile]
-\frametitle{Запуск тестов}
+\frametitle{Запуск одного теста}
 TAP - Test Anything Protocol
 \begin{block}{Run test}
 \begin{verbatim}
@@ -100,6 +96,11 @@ $ perl t/simple-test.t
 ok 1 - world.mind@yahoo.com must be valid
 \end{verbatim}
 \end{block}
+\end{frame}
+
+%% Запуск набора тестов
+\begin{frame}[fragile]
+\frametitle{Запуск набора тестов}
 \begin{block}{Run tests with Test:Harness}
 \begin{verbatim}
 $ prove
@@ -160,9 +161,7 @@ Mock модули общего назначения
 
 %% Пример подмены LWP
 \begin{frame}[allowframebreaks]{Пример подмены модуля LWP}
-%\begin{block}{}
 \lstinputlisting{t/mock-memcache.t}
-%\end{block}
 \end{frame}
 
 %% Закончили с функциональным
@@ -181,59 +180,84 @@ Mock модули общего назначения
 
 %% 
 \begin{frame}{Компилируется?}
-Test::Strict
+\begin{itemize}
+\item Test::Strict
+\end{itemize}
+\lstinputlisting{t/strict.t}
 \end{frame}
 
 %% 
 \begin{frame}{Соответствует соглашению о стиле кодирования?}
-Test::EOL
-Test::NoTabs
-Test::PerlTidy
+\begin{itemize}
+\item Test::EOL
+\item Test::NoTabs
+\item Test::PerlTidy
+\end{itemize}
 \end{frame}
 
 %% 
 \begin{frame}{Используются ли рекомендации из Perl Best Practice}
-Test::Perl::Critic
-Test::Portability::Files
+\begin{itemize}
+\item Test::Perl::Critic
+\item Test::Portability::Files
+\end{itemize}
 \end{frame}
 
 %% 
 \begin{frame}{Не забыли ли чего? (инструменты в больном)}
-Test::Fixme
-Test::NoBreakpoints
+\begin{itemize}
+\item Test::Fixme
+\item Test::NoBreakpoints
+\end{itemize}
 \end{frame}
 
 %% 
 \begin{frame}{Метрики в норме?}
-Perl::Metrics::Simple
+\begin{itemize}
+\item Perl::Metrics::Simple
+\end{itemize}
 \end{frame}
 
 %% 
 \begin{frame}{Есть ли документация?}
-Test::Pod::Coverage
-Test::Spelling
-Test::Pod
+\begin{itemize}
+\item Test::Pod::Coverage
+\item Test::Spelling
+\item Test::Pod
+\end{itemize}
 \end{frame}
 
 %% 
 \begin{frame}{Есть ли нужно количество тестов?}
-Test::Strict
+\begin{itemize}
+\item Test::Strict
+\end{itemize}
 \end{frame}
 
 %% 
 \begin{frame}{Не стал ли код медленнее?}
-Test::MockTime
+\begin{itemize}
+\item Test::MockTime
+\end{itemize}
 \end{frame}
 
 %% 
 \begin{frame}{Нет ли утечек памяти?}
-Test::Weaken
+\begin{itemize}
+\item Test::Weaken
+\end{itemize}
+\end{frame}
+
+%% 
+\begin{frame}{В итоге мы знает о коде:}
+
 \end{frame}
 
 %% 
 \begin{frame}{}
 Максимальный набор, все кроме последних двух не зависят от кода, можно копипастить и запускать
 \end{frame}
+
 %% 
 \begin{frame}{Вопросы}
 

@@ -1,10 +1,8 @@
 #!/usr/bin/perl -w
-
 use strict;
 use Test::More tests => 3;
 use Test::MockObject;
 use Cache::Memcached::Fast;
-
 use lib qw(lib);
 
 my $server   = 'localhost:11211';
